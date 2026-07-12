@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcador de Ponto</title>
+  <link rel="stylesheet" href="marcador.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+  <!-- Botão -->
+<span id="abrirMenu" class="menu-btn">&#9776;</span>
+
+<!-- Fundo escuro -->
+<div id="overlay" class="overlay"></div>
+
+<!-- Menu -->
+<div id="menuLateral" class="menu">
+    <a href="javascript:void(0)" class="fechar" id="fecharMenu">&times;</a>
+
+    <a href="#">Perfil</a>
+    <a href="#">Tamanho das letras</a>
+    <a href="#">Tema</a>
+    <a href="#">Configurações</a>
+
+    <div class="sair">
+        <a href="tela-login.html">Sair</a>
+    </div>
+</div>
+
+
+  <!-- MAPA -->
+  <div id="mapa">
+    <iframe src="https://www.google.com/maps?q=Picos,PI&output=embed"></iframe>
+</div>
+
+
+  <!-- CONTEÚDO -->
+  <div class="conteudo">
+    <h1>MARCADOR DE PONTO:</h1>
+
+    <div class="card">
+      <p><strong>DIA:</strong> <span id="data"></span></p>
+      <p><strong>ENTRADA:</strong> <span id="inicio">--:--</span></p>
+      <p><strong>SAÍDA:</strong> <span id="final">--:--</span></p>
+    </div>
+
+  <!--  <button onclick="registrarPonto()">Registrar Ponto</button>
+  </div>
+  -->
+
+  <button onclick="registrarEntrada()">Registrar Entrada</button>
+  <button onclick="registrarSaida()">Registrar Saída</button>
+
+  <!-- dock inferior -->
+  <div class="dock">
+
+    <div class="item active">
+      <a href="tela-canal-de-comunicação.html">
+        <div class="icon">
+          <svg fill="#ffffff" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 472.615 472.615" xml:space="preserve"
+            transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <g>
+                  <path
+                    d="M423.385,22.892H49.231C22.055,22.892,0,44.947,0,72.123v244.383c0,27.175,22.055,49.231,49.231,49.231h103.188 l83.889,83.988l83.889-83.988h103.188c27.175,0,49.231-22.055,49.231-49.231V72.123C472.615,44.947,450.56,22.892,423.385,22.892z M354.459,282.767H118.151v-19.692h236.308V282.767z M403.689,205.637H68.92v-19.692h334.769V205.637z M403.689,128.508H68.92 v-19.692h334.769V128.508z">
+                  </path>
+                </g>
+              </g>
+            </g>
+          </svg>
+      </a>
+    </div><span>Comun.</span>
+
+  </div>
+
+  <div class="item active">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+        <path
+          d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708" />
+      </svg>
+
+    </div><span>Turnos</span>
+  </div>
+
+  <div class="item active">
+    <a href="reunião.html">
+      <div class="icon">
+        <svg width="18px" height="18px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+          fill="#000000">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <title>icon/28/icon-userg</title>
+            <desc>Created with Sketch.</desc>
+            <defs> </defs>
+            <g id="out" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+              <path
+                d="M18.6666667,12.8333333 C20.6033333,12.8333333 22.155,11.27 22.155,9.33333333 C22.155,7.39666667 20.6033333,5.83333333 18.6666667,5.83333333 C16.73,5.83333333 15.1666667,7.39666667 15.1666667,9.33333333 C15.1666667,11.27 16.73,12.8333333 18.6666667,12.8333333 L18.6666667,12.8333333 L18.6666667,12.8333333 Z M9.33333333,12.8333333 C11.27,12.8333333 12.8216667,11.27 12.8216667,9.33333333 C12.8216667,7.39666667 11.27,5.83333333 9.33333333,5.83333333 C7.39666667,5.83333333 5.83333333,7.39666667 5.83333333,9.33333333 C5.83333333,11.27 7.39666667,12.8333333 9.33333333,12.8333333 L9.33333333,12.8333333 L9.33333333,12.8333333 Z M9.33333333,15.1666667 C6.615,15.1666667 1.16666667,16.5316667 1.16666667,19.25 L1.16666667,22.1666667 L17.5,22.1666667 L17.5,19.25 C17.5,16.5316667 12.0516667,15.1666667 9.33333333,15.1666667 L9.33333333,15.1666667 L9.33333333,15.1666667 Z M18.6666667,15.1666667 C18.3283333,15.1666667 17.9433333,15.19 17.535,15.225 C18.8883333,16.205 19.8333333,17.5233333 19.8333333,19.25 L19.8333333,22.1666667 L26.8333333,22.1666667 L26.8333333,19.25 C26.8333333,16.5316667 21.385,15.1666667 18.6666667,15.1666667 L18.6666667,15.1666667 L18.6666667,15.1666667 Z"
+                id="path" fill="#ffffff" sketch:type="MSShapeGroup"> </path>
+            </g>
+          </g>
+        </svg>
+    </a>
+  </div><span>Reunião</span>
+  </div>
+
+  <div class="item active">
+    <a href="relatório.html">
+      <div class="icon">
+        <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 100 100"
+          xml:space="preserve">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <g>
+              <g>
+                <path d="M39,32h22c1.1,0,2-0.9,2-2v-4c0-3.3-2.7-6-6-6H43c-3.3,0-6,2.7-6,6v4C37,31.1,37.9,32,39,32z">
+                </path>
+              </g>
+              <g>
+                <path
+                  d="M72,25h-2c-0.6,0-1,0.4-1,1v4c0,4.4-3.6,8-8,8H39c-4.4,0-8-3.6-8-8v-4c0-0.6-0.4-1-1-1h-2c-3.3,0-6,2.7-6,6 v43c0,3.3,2.7,6,6,6h44c3.3,0,6-2.7,6-6V31C78,27.7,75.3,25,72,25z M43,66c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2V56 c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V66z M53,66c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2V47c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V66z M63,66c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2V51c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V66z">
+                </path>
+              </g>
+            </g>
+          </g>
+        </svg>
+    </a>
+  </div><span>Relatório</span>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <script>
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        window.location.href = "tela-login.html";
+      }
+    });
+  </script>
+
+  <script>
+
+  // CONFIGURAÇÃO DA EMPRESA
+const EMPRESA_LAT = -7.0772;
+const EMPRESA_LNG = -41.4669;
+const RAIO_PERMITIDO = 100;
+
+let latitude = null;
+let longitude = null;
+
+// DATA
+document.getElementById("data").innerHTML =
+new Date().toLocaleDateString("pt-BR");
+
+// PEGA LOCALIZAÇÃO
+function pegarLocalizacao() {
+
+    navigator.geolocation.getCurrentPosition((pos)=>{
+
+        latitude = pos.coords.latitude;
+        longitude = pos.coords.longitude;
+
+        atualizarMapa(latitude,longitude);
+
+    },()=>{
+        alert("Não foi possível obter sua localização.");
+    });
+
+}
+
+let mapa;
+let marcador;
+
+function atualizarMapa(lat, lng){
+
+    if(!mapa){
+
+        mapa = L.map('mapa', {zoomControl: false, attributionControl: false}).setView([lat, lng], 16);
+
+        L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                attribution:'© OpenStreetMap'
+            }
+        ).addTo(mapa);
+
+        marcador = L.marker([lat,lng]).addTo(mapa);
+
+    }else{
+
+        marcador.setLatLng([lat,lng]);
+        mapa.setView([lat,lng],16);
+
+    }
+
+}
+
+// DISTÂNCIA
+function calcularDistancia(lat1, lon1, lat2, lon2){
+
+    const R = 6371000;
+
+    const dLat=(lat2-lat1)*Math.PI/180;
+    const dLon=(lon2-lon1)*Math.PI/180;
+
+    const a=
+    Math.sin(dLat/2)**2+
+    Math.cos(lat1*Math.PI/180)*
+    Math.cos(lat2*Math.PI/180)*
+    Math.sin(dLon/2)**2;
+
+    return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+
+}
+
+// REGISTRAR ENTRADA
+function registrarEntrada(){
+
+    if(latitude==null){
+        alert("Aguardando localização...");
+        return;
+    }
+
+    const distancia =
+    calcularDistancia(latitude,longitude,
+    EMPRESA_LAT,EMPRESA_LNG);
+
+    if(distancia>RAIO_PERMITIDO){
+        alert("Você está fora da empresa.");
+        return;
+    }
+
+    const agora=new Date();
+
+    document.getElementById("inicio").innerHTML=
+    agora.toLocaleTimeString("pt-BR");
+
+    let registros=
+    JSON.parse(localStorage.getItem("registros"))||[];
+
+    registros.push({
+        dia:agora.toLocaleDateString("pt-BR"),
+        entrada:agora.toLocaleTimeString("pt-BR"),
+        saida:null
+    });
+
+    localStorage.setItem("registros",
+    JSON.stringify(registros));
+
+    alert("Entrada registrada!");
+}
+
+// REGISTRAR SAÍDA
+function registrarSaida(){
+
+    if(latitude==null){
+        alert("Aguardando localização...");
+        return;
+    }
+
+    const distancia=
+    calcularDistancia(latitude,longitude,
+    EMPRESA_LAT,EMPRESA_LNG);
+
+    if(distancia>RAIO_PERMITIDO){
+        alert("Você está fora da empresa.");
+        return;
+    }
+
+    let registros=
+    JSON.parse(localStorage.getItem("registros"))||[];
+
+    if(registros.length==0){
+        alert("Nenhuma entrada registrada.");
+        return;
+    }
+
+    let ultimo=registros[registros.length-1];
+
+    if(ultimo.saida){
+        alert("A saída já foi registrada.");
+        return;
+    }
+
+    const agora=new Date();
+
+    ultimo.saida=
+    agora.toLocaleTimeString("pt-BR");
+
+    document.getElementById("final").innerHTML=
+    ultimo.saida;
+
+    // Horas trabalhadas
+    const entrada=new Date(`${ultimo,dia} ${ultimo,entrada}`);
+
+    const horas=(agora-entrada)/(1000*60*60);
+
+    ultimo.horasExtras=horas>8?
+    (horas-8).toFixed(2):0;
+
+    localStorage.setItem("registros",
+    JSON.stringify(registros));
+
+    alert("Saída registrada!");
+}
+
+window.onload=pegarLocalizacao;
+</script>
+
+
+<script>
+
+const menu = document.getElementById("menuLateral");
+const overlay = document.getElementById("overlay");
+
+document.getElementById("abrirMenu").onclick = () =>{
+    menu.classList.add("ativo");
+    overlay.classList.add("ativo");
+}
+
+document.getElementById("fecharMenu").onclick = () =>{
+    menu.classList.remove("ativo");
+    overlay.classList.remove("ativo");
+}
+
+overlay.onclick = () =>{
+    menu.classList.remove("ativo");
+    overlay.classList.remove("ativo");
+}
+
+</script>
+
+</body>
+
+</html>

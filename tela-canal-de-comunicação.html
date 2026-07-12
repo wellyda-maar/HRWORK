@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="canal de comunicação.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Tela do Canal de Comunicação</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="form-box"></div>
+        <div class="header">
+            <h3>CANAL DE COMUNUCAÇÃO</h3>
+
+        <div class="seta">
+            <a href="marcador-ponto.html">
+                <svg fill="#ffffff" version="1.1" baseProfile="tiny" id="Layer_1" xmlns:x="&amp;ns_extend;"
+                    xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" width="24px" height="24px"
+                    viewBox="0 0 42 42" xml:space="preserve">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <polygon fill-rule="evenodd" points="31,38.32 13.391,21 31,3.68 28.279,1 8,21.01 28.279,41 ">
+                        </polygon>
+                    </g>
+                </svg>
+            </a>
+      </div>
+      </div>
+    </header>
+
+    <div id="semPublicacoes">
+        <div class="logo">
+            <img src="foto do canal de comunicação.png" width="200px" height="200px">
+        </div>
+    
+
+        <div class="text">
+            <h2>Comunique-se com sua equipe</h2>
+        </div>
+    </div>
+
+    <div id="listaMensagens"></div>
+
+    <div class="area-botao">
+        <a href="nova-publicação.html">
+            <button type="button" class="btn-publicacao">
+                <span>CRIAR PUBLICAÇÃO</span>
+            </button>
+        </a>
+    </div>
+
+
+    </header>
+
+<script type="module">
+  import { db } from "./firebase.js";
+
+import {
+ collection,
+ query,
+ orderBy,
+ onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const lista =
+document.getElementById("listaMensagens");
+const semPublicacoes = document.getElementById("semPublicacoes");
+
+
+const q = query(
+ collection(db, "publicacoes"),
+ orderBy("data","desc")
+);
+
+
+onSnapshot(q, (snapshot) => {
+
+
+  lista.innerHTML = "";
+
+    if (snapshot.empty) {
+        semPublicacoes.style.display = "block";
+    } else {
+        semPublicacoes.style.display = "none";
+    }
+
+  snapshot.forEach((doc) => {
+
+      const dados = doc.data();
+
+
+      lista.innerHTML += `
+      <div style="
+      background: white;
+      border:1px solid #ccc;
+      padding:20px;
+      margin:15px;
+      border-radius:15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+      margin-right:15px;
+      ">
+          <h3>${dados.autor}</h3>
+          <p>${dados.mensagem}</p>
+          <small>
+                ${dados.data
+                    ? dados.data.toDate().toLocaleString("pt-BR")
+                    : ""}
+            </small>
+      </div>
+      `;
+  });
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
