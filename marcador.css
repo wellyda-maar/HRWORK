@@ -13,9 +13,9 @@ body {
 }
 
 /* MAPA */
-.mapa iframe {
+#mapa {
   width: 100%;
-  height: 380px;
+  height: 240px;
   border: none;
 }
 
