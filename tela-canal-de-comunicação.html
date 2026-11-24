@@ -15,23 +15,18 @@
         <div class="header">
             <h3>CANAL DE COMUNUCAÇÃO</h3>
 
-        <div class="seta">
-            <a href="marcador-ponto.html">
-                <svg fill="#ffffff" version="1.1" baseProfile="tiny" id="Layer_1" xmlns:x="&amp;ns_extend;"
-                    xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" width="24px" height="24px"
-                    viewBox="0 0 42 42" xml:space="preserve">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <polygon fill-rule="evenodd" points="31,38.32 13.391,21 31,3.68 28.279,1 8,21.01 28.279,41 ">
-                        </polygon>
-                    </g>
-                </svg>
-            </a>
-      </div>
-      </div>
+        <div class="seta" onclick="window.voltar()">
+            <svg fill="#ffffff" version="1.1" baseProfile="tiny"
+            width="24px" height="24px"
+            viewBox="0 0 42 42">
+
+            <polygon fill-rule="evenodd"
+                points="31,38.32 13.391,21 31,3.68 28.279,1 8,21.01 28.279,41">
+            </polygon>
+
+            </svg>
+        </div>
+        </div>
     </header>
 
     <div id="semPublicacoes">
@@ -58,8 +53,21 @@
 
     </header>
 
+<script type="module" src="canal.js"></script>
+
+
 <script type="module">
-  import { db } from "./firebase.js";
+  import { auth, db } from "./firebase.js";
+
+import {
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 
 import {
  collection,
@@ -67,6 +75,26 @@ import {
  orderBy,
  onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+let tipoUsuario = "";
+
+onAuthStateChanged(auth, async (user) => {
+
+    if (!user) {
+        window.location.href = "tela-login.html";
+        return;
+    }
+
+    const documento = await getDoc(doc(db, "usuarios", user.uid));
+
+    if (documento.exists()) {
+
+        tipoUsuario = documento.data().tipo;
+
+    }
+
+});
+
 
 const lista =
 document.getElementById("listaMensagens");
@@ -117,6 +145,22 @@ onSnapshot(q, (snapshot) => {
   });
 
 });
+
+function voltar() {
+
+    if (tipoUsuario === "gestor") {
+
+        window.location.href = "painel-gestor.html";
+
+    } else {
+
+        window.location.href = "marcador-ponto.html";
+
+    }
+
+}
+
+window.voltar = voltar;
 
 
 </script>

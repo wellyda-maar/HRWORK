@@ -49,31 +49,6 @@
         <h2>--</h2>  
     </div>
     
-<script>
-function mostrarRelatorio() {
-  const horasExtras = localStorage.getItem("horasExtras") || 0;
-  const presencas = localStorage.getItem("presencas") || 0;
-  const ausencias = 0;
-
-  document.getElementById("horasExtras").innerText = horasExtras;
-  document.getElementById("presencas").innerText = presencas;
-  document.getElementById("ausencias").innerText = ausencias;
-}
-
-document.addEventListener("DOMContentLoaded", mostrarRelatorio);
-</script>
-
-<script>
-function voltar() {
-    window.location.href = "marcador-ponto.html";
-}
-</script>
-    
-<script>
-function irParaRelatorio() {
-  window.location.href = "desempenho.html";
-}
-</script>
-
+<script type="module" src="relatorio.js"></script>
 </body>
 </html>

@@ -1,0 +1,86 @@
+:root{
+  --bg: #f4f6fb;
+  --radius: 5px;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif;
+}
+
+body{
+  background-color:  #fff;
+ 
+}
+
+.form-box{
+    position: relative;
+}
+/*IMPORTANTE*/
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 90px;
+    background: #08076a;
+}
+
+.seta{
+    position:absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.header h3{
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card{
+  background: #e8e8e8;
+  border-radius: 0;
+  padding: 0px;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+table{
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+    z-index: 99;
+    margin-top: 15px;   
+}
+
+table tr:nth-child(even){
+    background-color: #e8e8e8;
+}
+
+.botao input{
+    z-index: 99;
+    background-color: rgba(8, 7, 106, 0.95);
+    color: black;
+    width: 97%;
+    height: 37px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 94.5%;
+    left: 50%;
+    border-radius: 10px;
+    border: #08076a;
+    font-weight: 600;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* #08076a
+

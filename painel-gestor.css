@@ -67,3 +67,125 @@ border-radius:10px;
 font-size:16px;
 cursor:pointer;
 }
+
+
+
+
+.menu-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    font-size:32px;
+    cursor:pointer;
+    color:#fff;
+    z-index:1001;
+}
+
+.menu{
+    position:fixed;
+    top:0;
+    left:-300px;
+    width:300px;
+    height:100%;
+    background:#fff;
+    transition:.3s;
+    box-shadow:2px 0 12px rgba(0,0,0,.25);
+    z-index:1002;
+    overflow:auto;
+}
+
+.menu.ativo{
+    left:0;
+}
+
+.perfil-menu{
+    background:#08076a;
+    color:#fff;
+    text-align:center;
+    padding:30px 20px;
+}
+
+.perfil-menu img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid white;
+}
+
+.perfil-menu h3{
+    margin-top:15px;
+}
+
+.perfil-menu p{
+    opacity:.8;
+}
+
+.menu a{
+    display:block;
+    padding:18px 25px;
+    text-decoration:none;
+    color:#444;
+    font-size:18px;
+}
+
+.menu a:hover{
+    background:#f3f3f3;
+}
+
+.fechar{
+    position:absolute;
+    top:10px;
+    right:18px;
+    font-size:34px;
+}
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.4);
+    display:none;
+    z-index:1001;
+}
+
+.overlay.ativo{
+    display:block;
+}
+
+.sair{
+    margin-top:40px;
+    border-top:1px solid #ddd;
+}
+
+
+/* PADRÃO HRWORK PARA BOTÕES — baseado na tela Marcar Ponto */
+button,
+.bnt,
+.google-login-btn,
+.btn-publicacao {
+    background-color: #08076a;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease, opacity .2s ease;
+}
+button:hover,
+.bnt:hover,
+.google-login-btn:hover,
+.btn-publicacao:hover {
+    background-color: #09095a;
+}
+button:disabled,
+.bnt:disabled,
+.google-login-btn:disabled,
+.btn-publicacao:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}

@@ -22,10 +22,10 @@
 <div id="menuLateral" class="menu">
     <a href="javascript:void(0)" class="fechar" id="fecharMenu">&times;</a>
 
-    <a href="perfil.html">Perfil</a>
-    <a href="#">Tamanho das letras</a>
-    <a href="#">Tema</a>
-    <a href="#">Configurações</a>
+    <a href="perfil.html">👤Perfil</a>
+    <a href="#">🔠 Tamanho das letras</a>
+    <a href="#">🌔Tema</a>
+    <a href="#">⚙ Configurações</a>
 
     <div class="sair">
         <a href="tela-login.html">Sair</a>
@@ -34,9 +34,7 @@
 
 
   <!-- MAPA -->
-  <div id="mapa">
-    <iframe src="https://www.google.com/maps?q=Picos,PI&output=embed"></iframe>
-</div>
+  <div id="mapa" aria-label="Mapa da localização atual"></div>
 
 
   <!-- CONTEÚDO -->
@@ -49,12 +47,9 @@
       <p><strong>SAÍDA:</strong> <span id="final">--:--</span></p>
     </div>
 
-  <!--  <button onclick="registrarPonto()">Registrar Ponto</button>
+    <button type="button" id="btnEntrada" onclick="registrarEntrada()">Registrar Entrada</button>
+    <button type="button" id="btnSaida" onclick="registrarSaida()">Registrar Saída</button>
   </div>
-  -->
-
-  <button onclick="registrarEntrada()">Registrar Entrada</button>
-  <button onclick="registrarSaida()">Registrar Saída</button>
 
   <!-- dock inferior -->
   <div class="dock">

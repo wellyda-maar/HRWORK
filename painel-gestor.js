@@ -5,7 +5,11 @@ onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
+doc,
+getDoc,
 collection,
+query,
+where,
 getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -23,8 +27,19 @@ document.getElementById("listaFuncionarios");
 
 lista.innerHTML="";
 
-const consulta =
-await getDocs(collection(db,"usuarios"));
+const perfilSnap = await getDoc(doc(db, "usuarios", user.uid));
+
+if (!perfilSnap.exists()) {
+    alert("Seu cadastro não foi encontrado.");
+    return;
+}
+
+const consulta = await getDocs(
+    query(
+        collection(db, "usuarios"),
+        where("empresa", "==", perfilSnap.data().empresa)
+    )
+);
 
 consulta.forEach((doc)=>{
 
@@ -58,3 +73,22 @@ dados.foto ||
 });
 
 });
+
+
+const menu = document.getElementById("menuLateral");
+const overlay = document.getElementById("overlay");
+
+document.getElementById("abrirMenu").onclick = () => {
+    menu.classList.add("ativo");
+    overlay.classList.add("ativo");
+};
+
+document.getElementById("fecharMenu").onclick = () => {
+    menu.classList.remove("ativo");
+    overlay.classList.remove("ativo");
+};
+
+overlay.onclick = () => {
+    menu.classList.remove("ativo");
+    overlay.classList.remove("ativo");
+};

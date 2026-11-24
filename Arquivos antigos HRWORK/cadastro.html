@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionário</title>
+
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+    <div class="seta">
+            <a href="painel-gestor.html">
+              <svg fill="#ffffff" version="1.1" baseProfile="tiny" id="Layer_1" xmlns:x="&amp;ns_extend;"
+                  xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" width="24px" height="24px"
+                  viewBox="0 0 42 42" xml:space="preserve">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <polygon fill-rule="evenodd" points="31,38.32 13.391,21 31,3.68 28.279,1 8,21.01 28.279,41 ">
+                    </polygon>
+                  </g>
+              </svg>
+            </a>
+          </div>
+<div class="container">
+
+    <h2>Cadastrar Funcionário</h2>
+
+    <input type="text"
+           id="nome"
+           placeholder="Nome completo">
+
+    <input type="email"
+           id="email"
+           placeholder="Email">
+
+    <input type="password"
+           id="senha"
+           placeholder="Senha">
+
+    <input type="text"
+           id="cargo"
+           placeholder="Cargo">
+
+    <input type="text"
+           id="empresa"
+           placeholder="Código da empresa">
+
+    <input type="tel"
+           id="telefone"
+           placeholder="Telefone">
+
+    <input type="text"
+           id="departamento"
+           placeholder="Departamento">
+
+    <input type="text"
+           id="matricula"
+           placeholder="Matrícula">
+
+    <select id="tipo">
+
+        <option value="funcionario">
+            Funcionário
+        </option>
+
+        <option value="gestor">
+            Gestor
+        </option>
+
+    </select>
+
+    <button id="cadastrar">
+        Cadastrar
+    </button>
+
+</div>
+
+<script type="module" src="cadastro.js"></script>
+
+</body>
+</html>

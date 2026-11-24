@@ -42,22 +42,12 @@ body {
   margin: 8px 0;
 }
 
-/* BOTÃO */
-button {
+/* BOTÕES — padrão de referência da tela Marcar Ponto */
+.conteudo > button {
+  display: block;
   width: 100%;
-  background: #08076a;
-  color: #fff;
-  border: none;
   padding: 12px;
-  margin: 0;
-  margin-bottom: 20px;
-  font-size: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #09095a;
+  margin: 0 0 14px;
 }
 
 /* MENU */
@@ -163,4 +153,26 @@ button:hover {
 
 .sair a{
     color:#888;
+}
+
+
+/* PADRÃO HRWORK PARA BOTÕES — baseado na tela Marcar Ponto */
+button{
+    background-color: #08076a;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease, opacity .2s ease;
+}
+button:hover{
+    background-color: #09095a;
+}
+
+button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
 }

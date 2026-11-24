@@ -1,5 +1,3 @@
-
-
 :root{
   --bg: #f4f6fb;
   --radius: 5px;
@@ -89,8 +87,8 @@ body{
 }
 
 .area-botao button{
-    width: 90%;
-    height: 37px;
+    width: 97%;
+    height: 45px;
     border: none;
     border-radius: 10px;
     background: #08076a;
@@ -119,4 +117,25 @@ body{
     margin-top: 10px;
     color: #777;
     font-size: 14px;
+}
+
+
+/* PADRÃO HRWORK PARA BOTÕES — baseado na tela Marcar Ponto */
+.area-botao button {
+    background-color: #08076a;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease, opacity .2s ease;
+}
+.area-botao button:hover {
+    background-color: #09095a;
+}
+.area-botao button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
 }

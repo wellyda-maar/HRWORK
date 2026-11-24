@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -32,7 +31,7 @@
     margin: 14px 0;
     padding: 13px 50px 13px 20px;
     background: #eee;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
     outline: none;
     font-size: 16px;
@@ -64,7 +63,7 @@
     width: 100%;
     height: 45px;
     background: #0a088a;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     border: none;
     cursor: pointer;
@@ -114,4 +113,31 @@
         width: 20px;
         height: 20px;
     }
+}
+
+
+/* PADRÃO HRWORK PARA BOTÕES — baseado na tela Marcar Ponto */
+button,
+.bnt,
+.google-login-btn {
+    background-color: #08076a;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease, opacity .2s ease;
+}
+button:hover,
+.bnt:hover,
+.google-login-btn:hover {
+    background-color: #09095a;
+}
+button:disabled,
+.bnt:disabled,
+.google-login-btn:disabled{
+    opacity: .55;
+    cursor: not-allowed;
 }

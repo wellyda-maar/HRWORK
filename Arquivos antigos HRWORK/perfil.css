@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+header{
+    background:#08076a;
+    color:white;
+    height:80px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.seta{
+  position:absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #ffffff;
+  cursor: pointer;    
+}
+
+.perfil{
+    text-align:center;
+    margin-top:35px;
+}
+
+.foto{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #08076a;
+}
+
+#nome{
+    margin-top:20px;
+    font-size:28px;
+}
+
+.cargo{
+    margin-top:8px;
+    color:#555;
+    font-size:18px;
+}
+
+.funcao{
+    color:#08076a;
+    font-weight:bold;
+    margin-top:6px;
+}
+
+.informacoes{
+    width:90%;
+    margin:35px auto;
+}
+
+.card{
+    background:white;
+    padding:18px;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 2px 5px rgba(0,0,0,.15);
+}
+
+.card strong{
+    color:#08076a;
+}
+
+.card p{
+    margin-top:6px;
+    color:#444;
+}
+
+button{
+    display:block;
+    width:90%;
+    margin:25px auto;
+    height:45px;
+    border:none;
+    border-radius:10px;
+    background:#08076a;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}

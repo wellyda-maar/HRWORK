@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="form-box">
+
+    <!-- impedir submit -->
+     <div class="login-form">
+      <div class="logo"><h1>HRWork</h1></div>
+
+      <div class="input-box">
+        <input type="text" id="empresa" placeholder="Código da empresa">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="senha" placeholder="Senha">
+      </div>
+
+      <div class="forgot-link">
+        <a href="#">Esqueci a senha</a>
+      </div>
+
+      <button type="button" class="bnt" onclick="fazerLogin()">Login</button>
+
+      <button type="button" class="google-login-btn" onclick="loginComGoogle()">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+        <span>Entrar com Google</span>
+      </button>
+    </div>
+
+  </div>
+
+
+<script type="module" src="login.js"></script>
+
+</body>
+</html>

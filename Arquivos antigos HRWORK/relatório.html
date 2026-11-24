@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Relatório</title>
+    <link rel="stylesheet" href="relatorio.css">
+</head>
+<body>
+    <header class="container">
+        <div class="form-box">
+            <div class="header">
+                <h3>RELATÓRIO</h3>
+            </div>
+            <div class="seta" onclick="voltar()">
+                <svg fill="#ffffff" version="1.1" baseProfile="tiny" id="Layer_1" xmlns:x="&amp;ns_extend;"
+                    xmlns:i="&amp;ns_ai;" xmlns:graph="&amp;ns_graphs;" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" width="24px" height="24px"
+                    viewBox="0 0 42 42" xml:space="preserve">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <polygon fill-rule="evenodd" points="31,38.32 13.391,21 31,3.68 28.279,1 8,21.01 28.279,41 ">
+                        </polygon>
+                    </g>
+                </svg>
+            </div>
+    </header>
+
+    <div class="card">
+    <p>HORAS EXTRAS</p>
+    <h2 id="horasExtras">0</h2>
+    </div>
+
+    <div class="card">
+    <p>PRESENÇAS</p>
+    <h2 id="presencas">0</h2>
+    </div>
+
+    <div class="card">
+    <p>AUSÊNCIAS</p>
+    <h2 id="ausencias">0</h2>
+    </div>
+    
+    <div class="card"
+    onclick="irParaRelatorio()">
+        <p>DESEMPENHO</p>
+        <h2>--</h2>  
+    </div>
+    
+<script>
+function mostrarRelatorio() {
+  const horasExtras = localStorage.getItem("horasExtras") || 0;
+  const presencas = localStorage.getItem("presencas") || 0;
+  const ausencias = 0;
+
+  document.getElementById("horasExtras").innerText = horasExtras;
+  document.getElementById("presencas").innerText = presencas;
+  document.getElementById("ausencias").innerText = ausencias;
+}
+
+document.addEventListener("DOMContentLoaded", mostrarRelatorio);
+</script>
+
+<script>
+function voltar() {
+    window.location.href = "marcador-ponto.html";
+}
+</script>
+    
+<script>
+function irParaRelatorio() {
+  window.location.href = "desempenho.html";
+}
+</script>
+
+</body>
+</html>

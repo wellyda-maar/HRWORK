@@ -47,43 +47,7 @@
         <input type="button" value="Imprimir">
     </div>
 
-<script>
-function calcularHorasExtras(entrada, saida) {
-  if (!entrada || !saida) return "00:00";
-
-  const e = new Date(`1970-01-01T${entrada}`);
-  const s = new Date(`1970-01-01T${saida}`);
-
-  const horas = (s - e) / (1000 * 60 * 60);
-  const carga = 8;
-
-  if (horas > carga) {
-    return "+ " + (horas - carga).toFixed(2);
-  }
-
-  return "00:00";
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const tabela = document.getElementById("tabela-desempenho");
-  const registros = JSON.parse(localStorage.getItem("registros")) || [];
-
-  registros.forEach(reg => {
-    const tr = document.createElement("tr");
-
-    const extra = calcularHorasExtras(reg.entrada, reg.saida);
-
-    tr.innerHTML = `
-      <td>${reg.dia}</td>
-      <td>${reg.entrada || "--"}</td>
-      <td>${reg.saida || "--"}</td>
-      <td>${extra}</td>
-    `;
-
-    tabela.appendChild(tr);
-  });
-});
-</script>
+<script type="module" src="desempenho.js"></script>
 
 </body>
 </html>

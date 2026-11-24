@@ -13,15 +13,6 @@ body{
     min-height:100vh;
 }
 
-.seta{
-  position:absolute;
-  top: 8%;
-  left: 15px;
-  transform: translateY(-50%);
-  color: #ffffff;
-  cursor: pointer;    
-}
-
 .container{
     width:90%;
     max-width:400px;
@@ -63,4 +54,34 @@ button{
 
 button:hover{
     background:#0b0aa0;
+}
+
+
+/* PADRÃO HRWORK PARA BOTÕES — baseado na tela Marcar Ponto */
+button,
+.bnt,
+.google-login-btn,
+.btn-publicacao {
+    background-color: #08076a;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease, opacity .2s ease;
+}
+button:hover,
+.bnt:hover,
+.google-login-btn:hover,
+.btn-publicacao:hover {
+    background-color: #09095a;
+}
+button:disabled,
+.bnt:disabled,
+.google-login-btn:disabled,
+.btn-publicacao:disabled {
+    opacity: .55;
+    cursor: not-allowed;
 }
